@@ -36,11 +36,12 @@ body {
 
 /* Card hover utilities */
 .card-hover {
-  transition: border-color 200ms ease, box-shadow 200ms ease;
+  transition: border-color 200ms ease, box-shadow 200ms ease, transform 250ms ease;
 }
 .card-hover:hover {
   border-color: var(--color-accent) !important;
   box-shadow: var(--shadow-md);
+  transform: translateY(-4px);
 }
 
 .card-hover-dark {
@@ -49,3 +50,5 @@ body {
 .card-hover-dark:hover {
   border-color: var(--color-accent) !important;
 }
+
+

@@ -184,7 +184,7 @@ function ServicesShowcase() {
   return (
     <div style={{ position: 'relative', width: '100%', height: '360px' }}>
       <Image
-        src="/images/services-banner.png"
+        src="/images/services-banner.jpeg"
         alt="Luna Prestige cleaning team at work"
         fill
         style={{ objectFit: 'cover' }}

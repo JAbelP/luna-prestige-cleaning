@@ -2,29 +2,6 @@ import Image from 'next/image'
 import Button from '@/components/ui/Button'
 import Container from '@/components/ui/Container'
 import Section from '@/components/ui/Section'
-import ImagePlaceholder from '@/components/ui/ImagePlaceholder'
-
-const teamMembers = [
-  {
-    filename: 'team-luna.jpg',
-    name: 'Luna R.',
-    role: 'Founder & Head of Operations',
-    bio: 'With over a decade of experience in premium hospitality and residential care, Luna founded Luna Prestige to bring a truly elevated standard of cleaning to Raleigh homes.',
-  },
-  {
-    filename: 'team-detail-work.jpg',
-    name: 'Maria S.',
-    role: 'Lead Cleaning Specialist',
-    bio: 'Maria leads every deep cleaning and turnover service, bringing meticulous attention to detail and a passion for delivering consistently perfect results.',
-  },
-  {
-    filename: 'team-fresh-linen.jpg',
-    name: 'Carlos T.',
-    role: 'Client Relations',
-    bio: 'Carlos ensures every client receives a seamless experience from first inquiry to post-service follow-up, coordinating schedules and guaranteeing satisfaction.',
-  },
-]
-
 const values = [
   {
     icon: '◈',
@@ -191,7 +168,7 @@ function OurStory() {
           {/* Story image */}
           <div style={{ position: 'relative', minHeight: '380px' }}>
             <Image
-              src="/images/about-story.png"
+              src="/images/about-story.jpeg"
               alt="The Luna Prestige story"
               fill
               style={{ objectFit: 'cover' }}
@@ -206,111 +183,6 @@ function OurStory() {
         }
       `}</style>
     </Section>
-  )
-}
-
-function MeetTheTeam() {
-  return (
-    <div style={{ backgroundColor: 'var(--color-primary)' }}>
-    <Section>
-      <Container>
-        <div style={{ textAlign: 'center', marginBottom: '3.5rem' }}>
-          <p
-            style={{
-              fontFamily: 'var(--font-body)',
-              fontSize: 'var(--text-xs)',
-              fontWeight: 500,
-              letterSpacing: '0.2em',
-              textTransform: 'uppercase',
-              color: 'var(--color-accent)',
-              marginBottom: '0.75rem',
-            }}
-          >
-            The People Behind Every Clean
-          </p>
-          <h2
-            style={{
-              fontFamily: 'var(--font-display)',
-              fontWeight: 600,
-              fontSize: 'clamp(2rem, 4vw, 3rem)',
-              color: 'var(--color-bg)',
-              lineHeight: 1.2,
-            }}
-          >
-            Meet the Team
-          </h2>
-        </div>
-
-        <div
-          style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
-            gap: '1.5rem',
-          }}
-        >
-          {teamMembers.map((member) => (
-            <div
-              key={member.name}
-              className="card-hover-dark"
-              style={{
-                border: '1px solid rgba(201, 168, 76, 0.25)',
-                display: 'flex',
-                flexDirection: 'column',
-                gap: '0',
-                overflow: 'hidden',
-              }}
-            >
-              {/* Portrait */}
-              <ImagePlaceholder
-                label={member.name}
-                dims="480 × 560 px"
-                filename={member.filename}
-                minHeight="220px"
-              />
-              <div style={{ padding: '2rem', display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-                <div>
-                  <h3
-                    style={{
-                      fontFamily: 'var(--font-display)',
-                      fontWeight: 600,
-                      fontSize: 'var(--text-2xl)',
-                      color: 'var(--color-bg)',
-                      lineHeight: 1.2,
-                      marginBottom: '0.25rem',
-                    }}
-                  >
-                    {member.name}
-                  </h3>
-                  <p
-                    style={{
-                      fontFamily: 'var(--font-body)',
-                      fontSize: 'var(--text-xs)',
-                      fontWeight: 500,
-                      letterSpacing: '0.1em',
-                      textTransform: 'uppercase',
-                      color: 'var(--color-accent)',
-                    }}
-                  >
-                    {member.role}
-                  </p>
-                </div>
-                <p
-                  style={{
-                    fontFamily: 'var(--font-body)',
-                    fontSize: 'var(--text-sm)',
-                    color: 'rgba(250, 247, 242, 0.65)',
-                    lineHeight: 1.7,
-                  }}
-                >
-                  {member.bio}
-                </p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </Container>
-    </Section>
-    </div>
   )
 }
 
@@ -465,7 +337,6 @@ export default function AboutPage() {
     <>
       <PageHero />
       <OurStory />
-      <MeetTheTeam />
       <Values />
       <BottomCTA />
     </>

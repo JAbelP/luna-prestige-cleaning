@@ -27,6 +27,7 @@ function Hero() {
         >
           {/* Text side */}
           <div
+            className="anim-fade-up"
             style={{
               display: 'flex',
               flexDirection: 'column',
@@ -88,12 +89,14 @@ function Hero() {
 
           {/* Image placeholder side */}
           <div
+            className="anim-fade-in"
             style={{
               position: 'relative',
               minHeight: '480px',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
+              animationDelay: '0.2s',
             }}
           >
             <div
@@ -107,7 +110,7 @@ function Hero() {
               }}
             >
               <Image
-                src="/images/Hero Image.jpg"
+                src="/images/hero-image.jpeg"
                 alt="Immaculate home cleaned by Luna Prestige"
                 fill
                 style={{ objectFit: 'cover', objectPosition: 'center' }}
@@ -148,6 +151,16 @@ function Hero() {
         @media (min-width: 900px) {
           .hero-grid { grid-template-columns: 1fr 1fr !important; }
         }
+        @keyframes fade-up {
+          from { opacity: 0; transform: translateY(22px); }
+          to   { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fade-in {
+          from { opacity: 0; }
+          to   { opacity: 1; }
+        }
+        .anim-fade-up { animation: fade-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) both; }
+        .anim-fade-in { animation: fade-in 0.9s ease both; }
       `}</style>
     </div>
   )
@@ -513,9 +526,9 @@ function WhyLuna() {
 // ─── Gallery Strip ────────────────────────────────────────────────────────────
 
 const galleryItems = [
-  { alt: 'Kitchen after deep clean', src: '/images/gallery-kitchen.png' },
-  { alt: 'Living room after maintenance clean', src: '/images/gallery-living-room.png' },
-  { alt: 'Airbnb guest-ready turnover', src: '/images/gallery-airbnb.png' },
+  { alt: 'Kitchen after deep clean', src: '/images/gallery-kitchen.jpeg' },
+  { alt: 'Living room after maintenance clean', src: '/images/gallery-living-room.jpeg' },
+  { alt: 'Airbnb guest-ready turnover', src: '/images/gallery-airbnb.jpeg' },
 ]
 
 function GalleryStrip() {
@@ -557,7 +570,7 @@ function GalleryStrip() {
           }}
         >
           {galleryItems.map((item) => (
-            <div key={item.src} style={{ position: 'relative', height: '280px' }}>
+            <div key={item.src} className="gallery-img" style={{ position: 'relative', height: '280px' }}>
               <Image
                 src={item.src}
                 alt={item.alt}
@@ -568,6 +581,11 @@ function GalleryStrip() {
           ))}
         </div>
       </Container>
+      <style>{`
+        .gallery-img { overflow: hidden; }
+        .gallery-img img { transition: transform 500ms cubic-bezier(0.22, 1, 0.36, 1); }
+        .gallery-img:hover img { transform: scale(1.05); }
+      `}</style>
     </Section>
   )
 }
