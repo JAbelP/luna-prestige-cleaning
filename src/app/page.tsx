@@ -55,6 +55,7 @@ function Hero() {
                 lineHeight: 1.1,
                 color: 'var(--color-bg)',
                 marginBottom: '1.5rem',
+                fontVariantLigatures: 'no-common-ligatures',
               }}
             >
               Immaculate Homes.
